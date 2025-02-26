@@ -1,19 +1,17 @@
-import { useEffect, useState } from 'react';
-import CarCard from '../../components/CarCadr/CarCadr.jsx';
-import Filter from '../../components/Filter/Filter.jsx';
-import Pagination from '../../components/Pagination/Pagination.jsx';
-import styles from './CatalogPage.module.css';
+import { useEffect, useState } from "react";
+import CarCard from "../../components/CarCadr/CarCadr.jsx";
+import Filter from "../../components/Filter/Filter.jsx";
+import Pagination from "../../components/Pagination/Pagination.jsx";
+import styles from "./CatalogPage.module.css";
 
 const CatalogPage = () => {
   const [cars, setCars] = useState([]);
   const [filters, setFilters] = useState({});
   const [page, setPage] = useState(1);
 
-  const fetchCars = async () => {
-    // Fetch cars from API
-  };
+  const fetchCars = async () => {};
 
-useEffect(() => {
+  useEffect(() => {
     fetchCars();
   }, [filters, page]);
 
@@ -25,7 +23,11 @@ useEffect(() => {
           <CarCard key={car.id} car={car} />
         ))}
       </div>
-      <Pagination onPageChange={(direction) => setPage(direction === 'next' ? page + 1 : page - 1)} />
+      <Pagination
+        onPageChange={(direction) =>
+          setPage(direction === "next" ? page + 1 : page - 1)
+        }
+      />
     </div>
   );
 };
