@@ -1,10 +1,23 @@
-import styles from './Pagination.module.css';
+import styles from "./Pagination.module.css";
 
-const Pagination = ({ onPageChange }) => {
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
   return (
     <div className={styles.pagination}>
-      <button onClick={() => onPageChange('prev')}>Previous</button>
-      <button onClick={() => onPageChange('next')}>Next</button>
+      <button
+        onClick={() => onPageChange(currentPage - 1)}
+        disabled={currentPage === 1}
+      >
+        Previous
+      </button>
+      <span>
+        Page {currentPage} of {totalPages}
+      </span>
+      <button
+        onClick={() => onPageChange(currentPage + 1)}
+        disabled={currentPage === totalPages}
+      >
+        Next
+      </button>
     </div>
   );
 };

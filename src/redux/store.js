@@ -9,10 +9,10 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import filtersReducer from "./filters/slice.js";
-import carsReducer from "./cars/slice.js";
-import favoritesReducer from "./favorite/slice.js";
 import { combineReducers } from "redux";
+import carsReducer from "./cars/slice.js";
+import filtersReducer from "./filters/slice.js";
+import favoritesReducer from "./favorites/slice.js";
 
 const persistConfig = {
   key: "root",

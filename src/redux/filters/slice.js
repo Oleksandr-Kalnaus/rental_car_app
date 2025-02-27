@@ -4,29 +4,16 @@ const filtersSlice = createSlice({
   name: "filters",
   initialState: {
     brand: "",
-    price: null,
-    mileage: {
-      from: null,
-      to: null,
-    },
+    price: "",
+    mileageFrom: "",
+    mileageTo: "",
   },
   reducers: {
-    setBrandFilter: (state, action) => {
-      state.brand = action.payload;
+    setFilter: (state, action) => {
+      return { ...state, ...action.payload };
     },
-    setPriceFilter: (state, action) => {
-      state.price = action.payload;
-    },
-    setMileageFilter: (state, action) => {
-      state.mileage = action.payload;
-    },
-    resetFilters: (state) => {
-      state.brand = "";
-      state.price = null;
-      state.mileage = { from: null, to: null };
-  },
   },
 });
 
-export const { setBrandFilter, setPriceFilter, setMileageFilter } = filtersSlice.actions;
+export const { setFilter } = filtersSlice.actions;
 export default filtersSlice.reducer;
