@@ -4,7 +4,7 @@ import Logo from "../Logo/Logo.jsx";
 
 function Navigation() {
   return (
-    <>
+    <header className={css.header}>
       <Logo />
       <nav className={css.navigation}>
         <NavLink
@@ -20,7 +20,7 @@ function Navigation() {
           Catalog
         </NavLink>
       </nav>
-    </>
+    </header>
   );
 }
 

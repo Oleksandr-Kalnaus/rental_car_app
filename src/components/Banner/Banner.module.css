@@ -1,0 +1,59 @@
+.bannerBox {
+  width: 1440px;
+  height: 700px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.bannerImg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.textOverlay {
+  width: 783px;
+  height: 72px;
+  position: absolute;
+  top: 460px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 72px;
+  text-align: center;
+  margin: 0;
+}
+
+.slogan {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  margin-top: 16px;
+}
+
+.button {
+  margin-top: 40px;
+  width: 276px;
+  height: 44px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(52, 112, 255, 1);
+}
+
+.button:hover {
+  background: rgba(11, 68, 205, 1);
+}
