@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import CarCard from "../../components/CarCadr/CarCadr.jsx";
+import CarCard from "../../components/CarCard/CarCard.jsx";
 import Filter from "../../components/Filter/Filter.jsx";
 import Pagination from "../../components/Pagination/Pagination.jsx";
-import styles from "./CatalogPage.module.css";
+import css from "./CatalogPage.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchCars } from "../../redux/cars/operations.js";
 import { selectFilteredCars } from "../../redux/cars/slice.js";
@@ -28,16 +28,16 @@ const CatalogPage = () => {
     setPage(1);
   };
 
-  const itemsPerPage = 6;
+  const itemsPerPage = 12;
   const paginatedCars = cars.slice(
     (page - 1) * itemsPerPage,
     page * itemsPerPage
   );
 
   return (
-    <div className={styles.catalogPage}>
+    <div className={css.catalogPage}>
       <Filter onFilterChange={handleFilterChange} />
-      <div className={styles.carList}>
+      <div className={css.carList}>
         {paginatedCars.map((car) => (
           <CarCard key={car.id} car={car} />
         ))}

@@ -1,5 +1,6 @@
 import { useState } from "react";
-import styles from "./Filter.module.css";
+import css from "./Filter.module.css";
+import Button from "../Button/Button.jsx";
 
 const Filter = ({ onFilterChange }) => {
   const [filters, setFilters] = useState({
@@ -16,27 +17,39 @@ const Filter = ({ onFilterChange }) => {
   };
 
   return (
-    <div className={styles.filter}>
-      <input
-        type="text"
-        placeholder="Brand"
-        onChange={(e) => handleChange("brand", e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Price"
-        onChange={(e) => handleChange("price", e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Mileage from"
-        onChange={(e) => handleChange("mileageFrom", e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Mileage to"
-        onChange={(e) => handleChange("mileageTo", e.target.value)}
-      />
+    <div className={css.filter}>
+      <div className={css.filterGroup}>
+        <label>Car brand</label>
+        <input
+          type="text"
+          placeholder="Choose a brand"
+          onChange={(e) => handleChange("brand", e.target.value)}
+        />
+      </div>
+      <div className={css.filterGroup}>
+        <label>Price/1 hour</label>
+        <input
+          type="number"
+          placeholder="Choose a price"
+          onChange={(e) => handleChange("price", e.target.value)}
+        />
+      </div>
+      <div className={css.filterGroup}>
+        <label>Car mileage /km</label>
+        <div className={css.mileageInputs}>
+          <input
+            type="number"
+            placeholder="From"
+            onChange={(e) => handleChange("mileageFrom", e.target.value)}
+          />
+          <input
+            type="number"
+            placeholder="To"
+            onChange={(e) => handleChange("mileageTo", e.target.value)}
+          />
+        </div>
+      </div>
+      <Button className={css.searchButton}>Search</Button>
     </div>
   );
 };
