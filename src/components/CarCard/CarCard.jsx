@@ -13,27 +13,23 @@ const CarCard = ({ car }) => {
         className={css.image}
         loading="lazy"
       />
-      <h3 className={css.title}>{`${car.brand} ${car.model}`}</h3>
-      <p className={css.description}>{car.description}</p>
-      <div className={css.details}>
-        <p>
-          <strong>Year:</strong> {car.year}
-        </p>
-        <p>
-          <strong>Type:</strong> {car.type}
-        </p>
-        <p>
-          <strong>Price:</strong> ${car.rentalPrice}/day
-        </p>
-        <p>
-          <strong>Mileage:</strong> {car.mileage} km
-        </p>
+      <div className={css.header}>
+        <h3 className={css.title}>
+          {car.brand} <span className={css.model}>{car.model}</span>, {car.year}
+        </h3>
+        <p className={css.price}>${car.rentalPrice}</p>
       </div>
+      <p className={css.address}>
+        {car.address.split(", ").slice(1).join(" | ")} | {car.rentalCompany}
+      </p>
+      <p className={css.details}>
+        {car.type} | {car.mileage.toLocaleString()} km
+      </p>
       <Button
         className={css.button}
         onClick={() => navigate("/cars/" + car.id)}
       >
-        Read More
+        Read more
       </Button>
     </div>
   );
