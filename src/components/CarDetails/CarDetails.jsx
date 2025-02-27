@@ -8,45 +8,29 @@ const CarDetails = ({ car }) => {
         alt={`${car.brand} ${car.model}`}
         className={styles.image}
       />
-      <h2 className={styles.title}>{`${car.brand} ${car.model}`}</h2>
+
+      <div className={styles.header}>
+        <h2>
+          {car.brand} <span className={styles.model}>{car.model}</span>,{" "}
+          {car.year}
+        </h2>
+        <span className={styles.price}>${car.rentalPrice}</span>
+      </div>
+
+      <p className={styles.location}>
+        📍 {car.address.split(", ").slice(1).join(", ")} | Mileage:{" "}
+        {car.mileage.toLocaleString()} km
+      </p>
+
       <p className={styles.description}>{car.description}</p>
 
-      <div className={styles.info}>
-        <p>
-          <strong>Year:</strong> {car.year}
-        </p>
-        <p>
-          <strong>Type:</strong> {car.type}
-        </p>
-        <p>
-          <strong>Fuel Consumption:</strong> {car.fuelConsumption} L/100km
-        </p>
-        <p>
-          <strong>Engine Size:</strong> {car.engineSize}
-        </p>
-        <p>
-          <strong>Price:</strong> ${car.rentalPrice}/day
-        </p>
-        <p>
-          <strong>Mileage:</strong> {car.mileage} km
-        </p>
-      </div>
-
-      <div className={styles.accessories}>
-        <h3>Accessories:</h3>
+      <div className={styles.specifications}>
+        <h3>Car Specifications:</h3>
         <ul>
-          {car.accessories.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-
-      <div className={styles.functionalities}>
-        <h3>Functionalities:</h3>
-        <ul>
-          {car.functionalities.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
+          <li>📅 Year: {car.year}</li>
+          <li>🚗 Type: {car.type}</li>
+          <li>⛽ Fuel Consumption: {car.fuelConsumption} L/100km</li>
+          <li>⚙️ Engine Size: {car.engineSize}</li>
         </ul>
       </div>
 
@@ -54,18 +38,18 @@ const CarDetails = ({ car }) => {
         <h3>Rental Conditions:</h3>
         <ul>
           {car.rentalConditions.map((condition, index) => (
-            <li key={index}>{condition}</li>
+            <li key={index}>✔ {condition}</li>
           ))}
         </ul>
       </div>
 
-      <div className={styles.rentalInfo}>
-        <p>
-          <strong>Rental Company:</strong> {car.rentalCompany}
-        </p>
-        <p>
-          <strong>Address:</strong> {car.address}
-        </p>
+      <div className={styles.accessories}>
+        <h3>Accessories and functionalities:</h3>
+        <ul>
+          {[...car.accessories, ...car.functionalities].map((item, index) => (
+            <li key={index}>✔ {item}</li>
+          ))}
+        </ul>
       </div>
     </div>
   );

@@ -1,11 +1,12 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchCarDetails, fetchCars } from "./operations.js";
+import { fetchCarDetails, fetchCars, fetchCarsBrands } from "./operations.js";
 import { selectFilter, selectCars } from "./selectors.js";
 
 const carsSlice = createSlice({
   name: "cars",
   initialState: {
     items: [],
+    brands: [],
     loading: false,
     error: null,
     totalCars: 0,
@@ -34,6 +35,18 @@ const carsSlice = createSlice({
         state.carDetails = action.payload;
       })
       .addCase(fetchCarDetails.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      .addCase(fetchCarsBrands.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCarsBrands.fulfilled, (state, action) => {
+        state.loading = false;
+        state.brands = action.payload;
+      })
+      .addCase(fetchCarsBrands.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });
@@ -67,7 +80,7 @@ export const selectFilteredCars = createSelector(
         : false;
 
       const priceMatch = price
-        ? parseFloat(car.rentalPrice) <= parseFloat(price)
+        ? parseFloat(car.rentalPrice) === parseFloat(price)
         : true;
 
       const mileageFromMatch = mileageFrom

@@ -2,11 +2,13 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  margin: 26px 0 26px 120px;
+  margin-top: 26px;
+  margin-bottom: 26px;
+  margin-left: 0;
+  margin-right: auto;
 }
 .logo {
   width: 104px;
   height: 16px;
-
   display: block;
 }

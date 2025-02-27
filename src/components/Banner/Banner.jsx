@@ -17,7 +17,11 @@ const Banner = () => {
         <p className={css.slogan}>
           Reliable and budget-friendly rentals for any journey
         </p>
-        <Button className={css.button} onClick={() => navigate("/catalog")}>
+        <Button
+          type="button"
+          className={css.button}
+          onClick={() => navigate("/catalog")}
+        >
           View Catalog
         </Button>
       </div>

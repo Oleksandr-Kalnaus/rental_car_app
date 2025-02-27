@@ -28,8 +28,10 @@ const CarDetailsPage = () => {
 
   return (
     <div className={styles.carPage}>
-      <CarDetails car={car} />
-      <RentalForm onSubmit={(e) => e.preventDefault()} />
+      <div className={styles.carDetailsContainer}>
+        <CarDetails car={car} />
+        <RentalForm />
+      </div>
     </div>
   );
 };
