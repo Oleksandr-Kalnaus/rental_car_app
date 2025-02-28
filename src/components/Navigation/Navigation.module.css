@@ -1,9 +1,9 @@
 .header {
-  width: 1200px;
-  margin: 0 120px;
+  padding: 0 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: rgba(242, 244, 247, 1);
 }
 
 .navigation {

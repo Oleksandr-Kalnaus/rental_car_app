@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import styles from "./RentalForm.module.css";
+import css from "./RentalForm.module.css";
+import toast, { Toaster } from "react-hot-toast";
 
 const RentalForm = () => {
   const initialValues = {
@@ -19,13 +20,18 @@ const RentalForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log("Booking Details:", values);
+    toast.success("Booking successful! We will contact you soon.", {
+      duration: 4000,
+    });
     resetForm();
   };
 
   return (
-    <div className={styles.formContainer}>
-      <h3>Book your car now</h3>
-      <p>Stay connected! We are always ready to help you.</p>
+    <div className={css.formContainer}>
+      <h3 className={css.heading}>Book your car now</h3>
+      <p className={css.slogan}>
+        Stay connected! We are always ready to help you.
+      </p>
 
       <Formik
         initialValues={initialValues}
@@ -33,53 +39,52 @@ const RentalForm = () => {
         onSubmit={handleSubmit}
       >
         {({ isSubmitting }) => (
-          <Form className={styles.form}>
-            <div className={styles.fieldGroup}>
+          <Form className={css.form}>
+            <div className={css.fieldGroup}>
               <Field type="text" name="name" placeholder="Name*" />
-              <ErrorMessage
-                name="name"
-                component="div"
-                className={styles.error}
-              />
+              <ErrorMessage name="name" component="div" className={css.error} />
             </div>
 
-            <div className={styles.fieldGroup}>
+            <div className={css.fieldGroup}>
               <Field type="email" name="email" placeholder="Email*" />
               <ErrorMessage
                 name="email"
                 component="div"
-                className={styles.error}
+                className={css.error}
               />
             </div>
 
-            <div className={styles.fieldGroup}>
+            <div className={css.fieldGroup}>
               <Field type="date" name="bookingDate" />
               <ErrorMessage
                 name="bookingDate"
                 component="div"
-                className={styles.error}
+                className={css.error}
               />
             </div>
 
-            <div className={styles.fieldGroup}>
+            <div className={css.comment}>
               <Field as="textarea" name="comment" placeholder="Comment" />
               <ErrorMessage
                 name="comment"
                 component="div"
-                className={styles.error}
+                className={css.error}
               />
             </div>
 
             <button
               type="submit"
               disabled={isSubmitting}
-              className={styles.button}
+              className={css.button}
             >
               Send
             </button>
           </Form>
         )}
       </Formik>
+      <div>
+        <Toaster position="bottom-center" reverseOrder={false} />
+      </div>
     </div>
   );
 };
