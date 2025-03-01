@@ -1,5 +1,6 @@
 .details {
   display: flex;
+  justify-content: center;
   gap: 72px;
   width: 1440px;
   margin: 84px 120px 0;
@@ -51,11 +52,19 @@
 }
 
 .location {
+  display: flex;
+  align-items: center;
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   color: rgba(16, 24, 40, 1);
   margin-bottom: 16px;
+}
+
+.locationIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
 }
 
 .description {
@@ -73,6 +82,7 @@ ul {
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
+  padding: 0;
 }
 
 .rentalConditions {
@@ -84,8 +94,24 @@ ul {
   font-size: 20px;
   line-height: 24px;
   color: rgba(16, 24, 40, 1);
+  margin-bottom: 20px;
+}
+
+.checkIcon,
+.calendarIcon,
+.carIcon,
+.fuelIcon,
+.gearIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
 }
 
 .specifications {
   margin-bottom: 110px;
+}
+
+.specList li {
+  display: flex;
+  align-items: center;
 }

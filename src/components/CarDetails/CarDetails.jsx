@@ -16,12 +16,15 @@ const CarDetails = ({ car }) => {
       <div className={css.info}>
         <div className={css.header}>
           <h2 className={css.title}>
-            {car.brand} <span className={css.model}>{car.model}</span>,{" "}
-            {car.year}
+            {car.brand} <span className={css.model}>{car.model}</span>,
           </h2>
           <p className={css.location}>
-            {/* треба вставини іконки */}
-            {car.address.split(", ").slice(1).join(", ")} | Mileage:{" "}
+            <img
+              src="/public/location.svg"
+              alt="location"
+              className={css.locationIcon}
+            />
+            {car.address.split(", ").slice(1).join(", ")} | Mileage:
             {car.mileage.toLocaleString()} km
           </p>
           <p className={css.price}>${car.rentalPrice}</p>
@@ -34,7 +37,11 @@ const CarDetails = ({ car }) => {
             <ul>
               {car.rentalConditions.map((condition, index) => (
                 <li key={index}>
-                  {/* треба вставини іконки */}
+                  <img
+                    src="/public/check.svg"
+                    alt="check"
+                    className={css.checkIcon}
+                  />
                   {condition}
                 </li>
               ))}
@@ -43,19 +50,34 @@ const CarDetails = ({ car }) => {
 
           <div className={css.specifications}>
             <h3 className={css.headindSpecs}>Car Specifications:</h3>
-            <ul>
+            <ul className={css.specifications}>
               <li>
-                {/* треба вставини іконки */} Year: {car.year}
+                <img
+                  src="/public/calendar.svg"
+                  alt="calendar"
+                  className={css.calendarIcon}
+                />
+                Year: {car.year}
               </li>
               <li>
-                {/* треба вставини іконки */} Type: {car.type}
+                <img src="/public/car.svg" alt="car" className={css.carIcon} />
+                Type: {car.type}
               </li>
               <li>
-                {/* треба вставини іконки */} Fuel Consumption:{" "}
-                {car.fuelConsumption}
+                <img
+                  src="/public/fuel.svg"
+                  alt="fuel"
+                  className={css.fuelIcon}
+                />
+                Fuel Consumption: {car.fuelConsumption}
               </li>
               <li>
-                {/* треба вставини іконки */} Engine Size: {car.engineSize}
+                <img
+                  src="/public/gear.svg"
+                  alt="gear"
+                  className={css.gearIcon}
+                />
+                Engine Size: {car.engineSize}
               </li>
             </ul>
           </div>
@@ -68,7 +90,12 @@ const CarDetails = ({ car }) => {
               {[...car.accessories, ...car.functionalities].map(
                 (item, index) => (
                   <li key={index}>
-                    {/* треба вставини іконки */} {item}
+                    <img
+                      src="/public/check.svg"
+                      alt="check"
+                      className={css.checkIcon}
+                    />{" "}
+                    {item}
                   </li>
                 )
               )}

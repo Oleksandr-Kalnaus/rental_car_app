@@ -75,3 +75,27 @@
 .button:hover {
   background-color: rgba(11, 68, 205, 1);
 }
+
+.imageContainer {
+  position: relative;
+}
+.favoriteButton {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.favoriteIcon {
+  width: 16px;
+  height: 16px;
+}

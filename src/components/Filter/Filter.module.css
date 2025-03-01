@@ -20,13 +20,16 @@
 
 .mileageInputs {
   display: flex;
+  gap: 0;
 }
 
 .mileageInputs .inputFrom {
   padding: 12px 24px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
-  border: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: 1px solid rgba(218, 221, 225, 1);
   background-color: rgba(247, 247, 247, 1);
   font-weight: 500;
   font-size: 16px;
@@ -36,14 +39,20 @@
 
 .mileageInputs .inputTo {
   padding: 12px 24px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
   border-top-right-radius: 12px;
   border-bottom-right-radius: 12px;
-  border: none;
   background-color: rgba(247, 247, 247, 1);
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;
   width: 160px;
+}
+
+.mileageInputs .inputFrom:focus,
+.mileageInputs .inputTo:focus {
+  z-index: 1;
 }
 
 .searchButton {
@@ -118,4 +127,18 @@
 .selectPrice option:checked {
   color: rgba(20, 20, 20, 1);
   font-weight: 600;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownIcon {
+  position: absolute;
+  right: 16px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
 }

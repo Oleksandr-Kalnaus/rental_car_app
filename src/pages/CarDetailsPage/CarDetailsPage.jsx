@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import CarDetails from "../../components/CarDetails/CarDetails.jsx";
-import styles from "./CarDetailsPage.module.css";
 import { fetchCarDetails } from "../../redux/cars/operations.js";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -26,10 +25,8 @@ const CarDetailsPage = () => {
   if (!car) return <div>Car not found</div>;
 
   return (
-    <div className={styles.carPage}>
-      <div className={styles.carDetailsContainer}>
-        <CarDetails car={car} />
-      </div>
+    <div>
+      <CarDetails car={car} />
     </div>
   );
 };

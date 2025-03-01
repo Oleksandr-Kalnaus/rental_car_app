@@ -3,12 +3,17 @@ import * as Yup from "yup";
 import css from "./Filter.module.css";
 import Button from "../Button/Button.jsx";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchCarsBrands } from "../../redux/cars/operations.js";
 
 const Filter = ({ onFilterChange }) => {
   const dispatch = useDispatch();
   const brands = useSelector((state) => state.cars.brands);
+
+  const [openDropdown, setOpenDropdown] = useState({
+    brand: false,
+    price: false,
+  });
 
   useEffect(() => {
     dispatch(fetchCarsBrands());
@@ -50,25 +55,67 @@ const Filter = ({ onFilterChange }) => {
         <Form className={css.filter}>
           <div className={css.filterGroup}>
             <label>Car brand</label>
-            <Field as="select" name="brand" className={css.selectBrand}>
-              <option value="">Choose a brand</option>
-              {brands.map((brand, index) => (
-                <option key={`${brand}-${index}`} value={brand}>
-                  {brand}
-                </option>
-              ))}
-            </Field>
+            <div className={css.inputWrapper}>
+              <Field
+                as="select"
+                name="brand"
+                className={css.selectBrand}
+                onFocus={() =>
+                  setOpenDropdown((prev) => ({ ...prev, brand: true }))
+                }
+                onBlur={() =>
+                  setOpenDropdown((prev) => ({ ...prev, brand: false }))
+                }
+              >
+                <option value="">Choose a brand</option>
+                {brands.map((brand, index) => (
+                  <option key={`${brand}-${index}`} value={brand}>
+                    {brand}
+                  </option>
+                ))}
+              </Field>
+              <img
+                src={
+                  openDropdown.brand
+                    ? "/public/chevronUp.svg"
+                    : "/public/chevronDown.svg"
+                }
+                alt="Dropdown Icon"
+                className={css.dropdownIcon}
+              />
+            </div>
           </div>
           <div className={css.filterGroup}>
             <label>Price/ 1 hour</label>
-            <Field as="select" name="price" className={css.selectPrice}>
-              <option value="">Choose a price</option>
-              {prices.map((price, index) => (
-                <option key={`price-${index}`} value={price}>
-                  {price}
-                </option>
-              ))}
-            </Field>
+            <div className={css.inputWrapper}>
+              <Field
+                as="select"
+                name="price"
+                className={css.selectPrice}
+                onFocus={() =>
+                  setOpenDropdown((prev) => ({ ...prev, price: true }))
+                }
+                onBlur={() =>
+                  setOpenDropdown((prev) => ({ ...prev, price: false }))
+                }
+              >
+                <option value="">Choose a price</option>
+                {prices.map((price, index) => (
+                  <option key={`price-${index}`} value={price}>
+                    {price}
+                  </option>
+                ))}
+              </Field>
+              <img
+                src={
+                  openDropdown.price
+                    ? "/public/chevronUp.svg"
+                    : "/public/chevronDown.svg"
+                }
+                alt="Dropdown Icon"
+                className={css.dropdownIcon}
+              />
+            </div>
           </div>
           <div className={css.filterGroup}>
             <label>Car mileage / km</label>
