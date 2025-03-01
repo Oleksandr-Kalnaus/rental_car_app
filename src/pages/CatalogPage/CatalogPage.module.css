@@ -12,3 +12,20 @@
   gap: 32px;
   margin-top: 56px;
 }
+
+.loadMoreButton {
+  width: 156;
+  height: 44;
+  border-radius: 12px;
+  border-width: 1px;
+  padding: 12px 51px;
+  border: 1px solid rgba(52, 112, 255, 1);
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.loadMoreButton:hover {
+  border: 1px solid rgba(11, 68, 205, 1);
+}
