@@ -1,7 +1,8 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-import CircleLoader from "react-spinners/CircleLoader";
 import Layout from "./Layout/Layout.jsx";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage.js";
+import Loader from "./Loader/Loader.jsx";
 
 const HomePage = lazy(() => import("../pages/HomePage/HomePage.jsx"));
 const CatalogPage = lazy(() => import("../pages/CatalogPage/CatalogPage.jsx"));
@@ -11,12 +12,13 @@ const CarDetailsPage = lazy(() =>
 
 function App() {
   return (
-    <Suspense fallback={<CircleLoader color="#e3b800" />}>
+    <Suspense fallback={<Loader />}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route path="catalog" element={<CatalogPage />} />
           <Route path="cars/:id" element={<CarDetailsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Suspense>

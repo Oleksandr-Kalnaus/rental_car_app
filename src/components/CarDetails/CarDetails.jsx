@@ -33,7 +33,7 @@ const CarDetails = ({ car }) => {
 
         <div className={css.features}>
           <div className={css.rentalConditions}>
-            <h3 className={css.headindSpecs}>Rental Conditions:</h3>
+            <h3 className={css.headingSpecs}>Rental Conditions:</h3>
             <ul>
               {car.rentalConditions.map((condition, index) => (
                 <li key={index}>
@@ -45,7 +45,7 @@ const CarDetails = ({ car }) => {
           </div>
 
           <div className={css.specifications}>
-            <h3 className={css.headindSpecs}>Car Specifications:</h3>
+            <h3 className={css.headingSpecs}>Car Specifications:</h3>
             <ul className={css.specifications}>
               <li>
                 <img
@@ -71,7 +71,7 @@ const CarDetails = ({ car }) => {
           </div>
 
           <div className={css.accessories}>
-            <h3 className={css.headindSpecs}>
+            <h3 className={css.headingSpecs}>
               Accessories and functionalities:
             </h3>
             <ul>

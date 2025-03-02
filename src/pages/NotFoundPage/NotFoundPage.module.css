@@ -1,0 +1,12 @@
+.NotFoundPage {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 1440px;
+  margin: 0 120px;
+}
+.imgNotFoundPage {
+  width: 70%;
+  border: none;
+  border-radius: 50%;
+}

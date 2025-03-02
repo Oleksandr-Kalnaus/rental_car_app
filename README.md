@@ -1,8 +1,71 @@
-# React + Vite
+# RentalCar - Веб-додаток для оренди автомобілів
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Опис проєкту
 
-Currently, two official plugins are available:
+**RentalCar** - це фронтенд частина веб-додатку для компанії, яка займається орендою автомобілів. Додаток дозволяє користувачам переглядати доступні автомобілі, фільтрувати їх за різними параметрами, додавати автомобілі до обраних, переглядати детальну інформацію про автомобіль та бронювати його через форму оренди.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Проєкт виконаний з використанням сучасних технологій, таких як React, Redux, React Router та Axios. Для стилізації використовуються CSS модулі.
+
+---
+
+## Основні функції
+
+- **Домашня сторінка**: Банер з основним закликом до дії та кнопкою переходу до каталогу.
+- **Сторінка каталогу**:
+  - Перегляд списку доступних автомобілів.
+  - Фільтрація автомобілів за брендом, ціною та пробігом.
+  - Довантаження додаткових автомобілів за допомогою кнопки "Load More".
+  - Додавання автомобілів до списку обраних.
+- **Сторінка окремого автомобіля**:
+  - Детальна інформація про автомобіль (фотографія, опис, технічні характеристики, умови оренди).
+  - Форма для бронювання автомобіля.
+- **Збереження стану**:
+  - Список обраних автомобілів зберігається навіть після оновлення сторінки.
+- **Нотифікації**:
+  - Після успішного бронювання автомобіля відображається повідомлення про успішну оренду.
+
+---
+
+## Технології
+
+- **Frontend**: React, Vite
+- **State Management**: Redux, Redux Persist
+- **Routing**: React Router
+- **HTTP Client**: Axios
+- **Styling**: CSS Modules
+- **Deployment**: Vercel
+
+---
+
+## Інструкція з установки
+
+1. **Клонуйте репозиторій**:
+   ```bash
+   git clone https://github.com/ваш-нікнейм/rentalcar.git
+   cd rentalcar
+   ```
+1. **Встоновіть залежності**:
+   ```bash
+   Copy
+   npm install
+   ```
+1. **Запустіть проект локально**:
+   ```
+   bash
+   Copy
+   npm run dev
+   ```
+1. **Відкрийте браузер**:
+
+**Перейдіть за адресою: http://localhost:5173**
+
+Автор
+Oleksand Kalnaus
+
+GitHub: Oleksand-Kalnaus
+
+Email: oleksandrkalnaus@gmail.com
+
+Посилання
+Документація API **https://car-rental-api.goit.global/api-docs/**
+Деплой на Vercel **https://rental-car-app-chi.vercel.app/**

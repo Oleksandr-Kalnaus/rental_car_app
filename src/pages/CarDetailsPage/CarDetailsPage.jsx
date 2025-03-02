@@ -8,6 +8,8 @@ import {
   selectLoading,
   selectError,
 } from "../../redux/cars/selectors.js";
+import Loader from "../../components/Loader/Loader.jsx";
+import toast from "react-hot-toast";
 
 const CarDetailsPage = () => {
   const { id } = useParams();
@@ -20,8 +22,8 @@ const CarDetailsPage = () => {
     dispatch(fetchCarDetails(id));
   }, [dispatch, id]);
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error}</div>;
+  if (loading) return <Loader />;
+  if (error) return toast.error({ error });
   if (!car) return <div>Car not found</div>;
 
   return (
