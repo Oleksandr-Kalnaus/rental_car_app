@@ -2,16 +2,17 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Button/Button.jsx";
 import css from "./Banner.module.css";
 
+import bannerX1 from "/Car-Rentals-Banner-x1.jpg";
+import bannerX2 from "/Car-Rentals-Banner-x2.jpg";
+
 const Banner = () => {
   const navigate = useNavigate();
 
   return (
     <div className={css.bannerBox}>
       <img
-        srcSet="
-        ../../../public/Car-Rentals-Banner-x1.jpg x1,
-        ../../../public/Car-Rentals-Banner-x2.jpg x2"
-        src="../../../public/Car-Rentals-Banner-x1.jpg"
+        srcSet={`${bannerX1} 1x, ${bannerX2} 2x`}
+        src={bannerX1}
         alt="Car"
         className={css.bannerImg}
       />

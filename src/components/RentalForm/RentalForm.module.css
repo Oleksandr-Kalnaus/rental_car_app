@@ -32,7 +32,7 @@
   height: 48px;
 }
 
-.comment {
+.comment textarea {
   height: 88px;
 }
 
@@ -43,7 +43,7 @@ textarea {
   border: none;
   border-radius: 12px;
   color: rgba(141, 146, 154, 1);
-
+  background-color: rgba(247, 247, 247, 1);
   font-weight: 500;
   font-size: 16px;
   line-height: 20px;

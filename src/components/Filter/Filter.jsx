@@ -83,11 +83,7 @@ const Filter = ({ onFilterChange }) => {
                 ))}
               </Field>
               <img
-                src={
-                  openDropdown.brand
-                    ? "/public/chevronUp.svg"
-                    : "/public/chevronDown.svg"
-                }
+                src={openDropdown.brand ? "/chevronUp.svg" : "/chevronDown.svg"}
                 alt="Dropdown Icon"
                 className={css.dropdownIcon}
               />
@@ -115,11 +111,7 @@ const Filter = ({ onFilterChange }) => {
                 ))}
               </Field>
               <img
-                src={
-                  openDropdown.price
-                    ? "/public/chevronUp.svg"
-                    : "/public/chevronDown.svg"
-                }
+                src={openDropdown.price ? "/chevronUp.svg" : "/chevronDown.svg"}
                 alt="Dropdown Icon"
                 className={css.dropdownIcon}
               />

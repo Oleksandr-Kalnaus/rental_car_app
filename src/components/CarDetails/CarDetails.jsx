@@ -20,7 +20,7 @@ const CarDetails = ({ car }) => {
           </h2>
           <p className={css.location}>
             <img
-              src="/public/location.svg"
+              src="/location.svg"
               alt="location"
               className={css.locationIcon}
             />
@@ -37,11 +37,7 @@ const CarDetails = ({ car }) => {
             <ul>
               {car.rentalConditions.map((condition, index) => (
                 <li key={index}>
-                  <img
-                    src="/public/check.svg"
-                    alt="check"
-                    className={css.checkIcon}
-                  />
+                  <img src="/check.svg" alt="check" className={css.checkIcon} />
                   {condition}
                 </li>
               ))}
@@ -53,30 +49,22 @@ const CarDetails = ({ car }) => {
             <ul className={css.specifications}>
               <li>
                 <img
-                  src="/public/calendar.svg"
+                  src="/calendar.svg"
                   alt="calendar"
                   className={css.calendarIcon}
                 />
                 Year: {car.year}
               </li>
               <li>
-                <img src="/public/car.svg" alt="car" className={css.carIcon} />
+                <img src="/car.svg" alt="car" className={css.carIcon} />
                 Type: {car.type}
               </li>
               <li>
-                <img
-                  src="/public/fuel.svg"
-                  alt="fuel"
-                  className={css.fuelIcon}
-                />
+                <img src="/fuel.svg" alt="fuel" className={css.fuelIcon} />
                 Fuel Consumption: {car.fuelConsumption}
               </li>
               <li>
-                <img
-                  src="/public/gear.svg"
-                  alt="gear"
-                  className={css.gearIcon}
-                />
+                <img src="/gear.svg" alt="gear" className={css.gearIcon} />
                 Engine Size: {car.engineSize}
               </li>
             </ul>
@@ -91,7 +79,7 @@ const CarDetails = ({ car }) => {
                 (item, index) => (
                   <li key={index}>
                     <img
-                      src="/public/check.svg"
+                      src="/check.svg"
                       alt="check"
                       className={css.checkIcon}
                     />{" "}

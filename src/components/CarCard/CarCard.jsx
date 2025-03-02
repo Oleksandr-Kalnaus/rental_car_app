@@ -42,7 +42,7 @@ const CarCard = ({ car }) => {
           onClick={toggleFavorite}
         >
           <img
-            src={isFavorite ? "/public/heart.svg" : "/public/emptyHeart.svg"}
+            src={isFavorite ? "/heart.svg" : "/emptyHeart.svg"}
             alt="favoriteIcon"
             className={css.favoriteIcon}
           />
@@ -54,12 +54,14 @@ const CarCard = ({ car }) => {
         </h3>
         <p className={css.price}>${car.rentalPrice}</p>
       </div>
-      <p className={css.address}>
-        {car.address.split(", ").slice(1).join(" | ")} | {car.rentalCompany}
-      </p>
-      <p className={css.details}>
-        {car.type} | {car.mileage.toLocaleString()} km
-      </p>
+      <div className={css.extraInfo}>
+        <p className={css.address}>
+          {car.address.split(", ").slice(1).join("  |  ")} | {car.rentalCompany}
+        </p>
+        <p className={css.details}>
+          {car.type} | {car.mileage.toLocaleString()} km
+        </p>
+      </div>
       <Button
         className={css.button}
         onClick={() => navigate("/cars/" + car.id)}
