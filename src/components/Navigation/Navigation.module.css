@@ -21,3 +21,21 @@
   line-height: 20px;
   text-align: center;
 }
+
+.link {
+  color: rgba(16, 24, 40, 1);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: rgba(11, 68, 205, 1);
+}
+
+.active {
+  color: rgba(11, 68, 205, 1);
+}
+
+.isDetailsPage .link {
+  color: rgba(16, 24, 40, 1);
+}

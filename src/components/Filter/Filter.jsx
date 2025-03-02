@@ -35,11 +35,19 @@ const Filter = ({ onFilterChange }) => {
 
   const handleSubmit = (values) => {
     const filters = {
-      ...values,
-      price: values.price ? parseFloat(values.price) : null,
-      mileageFrom: values.mileageFrom ? parseFloat(values.mileageFrom) : null,
-      mileageTo: values.mileageTo ? parseFloat(values.mileageTo) : null,
+      brand: values.brand || "",
+      rentalPrice: values.price ? String(values.price) : "",
+      minMileage: values.mileageFrom ? String(values.mileageFrom) : "",
+      maxMileage: values.mileageTo ? String(values.mileageTo) : "",
     };
+
+    if (!values.mileageFrom && values.mileageTo) {
+      filters.minMileage = "";
+    }
+
+    if (!values.mileageTo && values.mileageFrom) {
+      filters.maxMileage = "";
+    }
     onFilterChange(filters);
   };
 

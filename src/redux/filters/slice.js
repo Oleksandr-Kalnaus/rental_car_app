@@ -10,7 +10,11 @@ const filtersSlice = createSlice({
   },
   reducers: {
     setFilter: (state, action) => {
-      return { ...state, ...action.payload };
+      Object.keys(action.payload).forEach((key) => {
+        if (action.payload[key] !== undefined && action.payload[key] !== "") {
+          state[key] = action.payload[key];
+        }
+      });
     },
   },
 });

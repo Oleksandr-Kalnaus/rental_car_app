@@ -1,6 +1,5 @@
-import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchCarDetails, fetchCars, fetchCarsBrands } from "./operations.js";
-import { selectFilter, selectCars } from "./selectors.js";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchCarDetails, fetchCars, fetchCarsBrands } from "./operations";
 
 const carsSlice = createSlice({
   name: "cars",
@@ -11,21 +10,43 @@ const carsSlice = createSlice({
     error: null,
     totalCars: 0,
     totalPages: 1,
-
     carDetails: null,
+  },
+  reducers: {
+    resetCars: (state) => {
+      state.items = [];
+      state.totalCars = 0;
+      state.totalPages = 1;
+    },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCars.pending, handlePending)
+      .addCase(fetchCars.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(fetchCars.fulfilled, (state, action) => {
         state.loading = false;
-        state.error = null;
-        state.items = action.payload.cars || [];
-        state.totalCars = action.payload.totalCars || 0;
-        state.totalPages = action.payload.totalPages || 1;
-      })
-      .addCase(fetchCars.rejected, handleRejected)
+        const newCars = action.payload.cars;
 
+        const uniqueCars = newCars.filter(
+          (newCar) =>
+            !state.items.some((existingCar) => existingCar.id === newCar.id)
+        );
+
+        if (action.payload.page === 1) {
+          state.items = uniqueCars;
+        } else {
+          state.items = [...state.items, ...uniqueCars];
+        }
+
+        state.totalCars = action.payload.totalCars;
+        state.totalPages = action.payload.totalPages;
+      })
+      .addCase(fetchCars.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchCarDetails.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -53,46 +74,5 @@ const carsSlice = createSlice({
   },
 });
 
-const handlePending = (state) => {
-  return {
-    ...state,
-    loading: true,
-  };
-};
-
-const handleRejected = (state, action) => {
-  return {
-    ...state,
-    loading: false,
-    error: action.payload,
-  };
-};
-
-export const selectFilteredCars = createSelector(
-  [selectCars, selectFilter],
-  (cars, filters) => {
-    if (!Array.isArray(cars)) return [];
-    const { brand, price, mileageFrom, mileageTo } = filters;
-
-    return cars.filter((car) => {
-      const brandMatch = car.brand
-        ? car.brand.toLowerCase().includes(brand.toLowerCase())
-        : false;
-
-      const priceMatch = price
-        ? parseFloat(car.rentalPrice) === parseFloat(price)
-        : true;
-
-      const mileageFromMatch = mileageFrom
-        ? car.mileage >= parseFloat(mileageFrom)
-        : true;
-      const mileageToMatch = mileageTo
-        ? car.mileage <= parseFloat(mileageTo)
-        : true;
-
-      return brandMatch && priceMatch && mileageFromMatch && mileageToMatch;
-    });
-  }
-);
-
+export const { resetCars } = carsSlice.actions;
 export default carsSlice.reducer;

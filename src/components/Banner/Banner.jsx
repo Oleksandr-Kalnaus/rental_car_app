@@ -8,6 +8,9 @@ const Banner = () => {
   return (
     <div className={css.bannerBox}>
       <img
+        srcSet="
+        ../../../public/Car-Rentals-Banner-x1.jpg x1,
+        ../../../public/Car-Rentals-Banner-x2.jpg x2"
         src="../../../public/Car-Rentals-Banner-x1.jpg"
         alt="Car"
         className={css.bannerImg}

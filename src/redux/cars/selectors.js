@@ -8,3 +8,5 @@ export const selectTotalCars = (state) => state.cars.totalCars;
 export const selectTotalPages = (state) => state.cars.totalPages;
 
 export const selectCarDetails = (state) => state.cars.carDetails;
+
+export const selectCarBrands = (state) => state.cars.brands;
