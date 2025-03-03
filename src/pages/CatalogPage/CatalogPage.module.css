@@ -1,3 +1,7 @@
+.catalog {
+  margin: 0 120px;
+}
+
 .catalogPage {
   display: flex;
   flex-direction: column;

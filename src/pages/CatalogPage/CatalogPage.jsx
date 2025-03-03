@@ -36,19 +36,21 @@ const CatalogPage = () => {
   };
 
   return (
-    <div className={css.catalogPage}>
-      <Filter onFilterChange={handleFilterChange} />
-      <div className={css.carList}>
-        {cars.map((car) => (
-          <CarCard key={car.id} car={car} />
-        ))}
-      </div>
+    <div className={css.catalog}>
+      <ul className={css.catalogPage}>
+        <Filter onFilterChange={handleFilterChange} />
+        <li className={css.carList}>
+          {cars.map((car) => (
+            <CarCard key={car.id} car={car} />
+          ))}
+        </li>
 
-      {page < totalPages && (
-        <Button onClick={handleLoadMore} className={css.loadMoreButton}>
-          Load More
-        </Button>
-      )}
+        {page < totalPages && (
+          <Button onClick={handleLoadMore} className={css.loadMoreButton}>
+            Load More
+          </Button>
+        )}
+      </ul>
     </div>
   );
 };
